@@ -38,3 +38,13 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    # run the command to perform a bandwith test
    echo "RUNNING BANDWITH TEST"
    newtest2 /mpich/install/bin/mpirun -n 2 /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
+
+
+##############################
+# ltncy_multi
+##############################
+
+%apprun ltncy_multi
+   # run the command to perform a multi pair latency test
+   echo "RUNNING MULTI PAIR LATENCY TEST"
+   newtest2 /mpich/install/bin/mpirun -n 2 /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_multi_lat
