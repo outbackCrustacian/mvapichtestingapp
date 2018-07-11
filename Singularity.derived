@@ -1,0 +1,38 @@
+Bootstrap: shub
+From: jtchilders/singularity_mpi_test_recipe:latest
+
+%setup
+   # make directory for test MPI program
+   mkdir ${SINGULARITY_ROOTFS}/testmvapich
+   # cp pi.c ${SINGULARITY_ROOTFS}/testmvapich/
+
+%post
+   yum install -y wget
+   # add to local environment to build pi.c
+   export PATH=$PATH:/mpich/install/lib
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich/install/lib
+   env | sort
+   cd /testmvapich
+   wget -q http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.4.2.tar.gz
+   tar xf osu-micro-benchmarks-5.4.2.tar.gz --strip-components=1
+
+   ./configure CC=/mpich/install/bin/mpicc CXX=/mpich/install/bin/mpicxx --prefix=/usr
+	make
+	make install
+
+##############################
+# ltncy
+##############################
+
+%apprun ltncy
+   # run the command to perform a latency test
+   singularity exec newmpichtest /mpich/install/bin/mpirun -n 2 /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+
+
+##############################
+# bnd
+##############################
+
+%apprun bnd
+   # run the command to perform a bandwith test
+   singularity exec newmpichtest /mpich/install/bin/mpirun -n 2 /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
