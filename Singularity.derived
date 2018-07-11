@@ -20,6 +20,10 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 	make
 	make install
 
+#how to run apps in vagrant
+#Install mpi inside vagrent (follow the singularity.mpich)
+#Command something like this: mpirun -n 2 singularity run --app latency
+
 ##############################
 # ltncy
 ##############################
@@ -27,7 +31,7 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 %apprun ltncy
    # run the command to perform a latency test
    echo "RUNNING LATENCY TEST"
-   newtest2 /mpich/install/bin/mpirun -n 2 /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+   /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
 
 
 ##############################
@@ -37,8 +41,7 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 %apprun bnd
    # run the command to perform a bandwith test
    echo "RUNNING BANDWITH TEST"
-   newtest2 /mpich/install/bin/mpirun -n 2 /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
-
+   /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
 
 ##############################
 # ltncy_multi
