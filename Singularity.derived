@@ -71,7 +71,7 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 
 %apprun mbw_mr
    #run the command to perform a multiple bandwith / messaging rate test
-   /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/mbw_mr
+   /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_mbw_mr
 
 
 
@@ -81,4 +81,4 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 
 %apprun multi_lat
    #run the command to perform a multi pair latency test
-   /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/multi_lat
+   /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_multi_lat
