@@ -226,7 +226,7 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 #
 #
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-#allcollectives
+#allnonblocking
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 %apprun allnonblocking
    #run every benchmark included in the collective library
