@@ -213,3 +213,118 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 %apprun scatterv
    #run an mpi scatterv latency benchmark
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_scatterv
+
+
+
+
+
+
+
+
+
+#Non blocking collective MPI benchmarks
+#
+#
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#allcollectives
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun allnonblocking
+   #run every benchmark included in the collective library
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iallgather
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iallgatherv
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ialltoall
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ialltoallv
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ibarrier
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ibcast
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_igather
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_igatherv
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iscatter
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iscatterv
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# iallgather
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun iallgather
+   #run an MPI iallgather latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iallgather
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# iallgatherv
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun iallgatherv
+   #run an MPI iallgatherv latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iallgatherv
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#ialltoall
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun ialltoall
+   #run an MPI ialltoall latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ialltoall
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#ialltoallv
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun ialltoallv
+   #run an MPI ialltoallv latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ialltoallv
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#ialltoallw
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun ialltoallw
+   #run an MPI ialltoallw latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ialltoallw
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#ibarrier
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun ibarrier
+   #run an MPI ibarrier latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ibarrier
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#ibcast
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun ibcast
+   #run an MPI ibcast latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ibcast
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#igather
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun igather
+   #run an MPI igather latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_igather
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#igatherv
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun igatherv
+   #run an MPI igatherv latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_igatherv
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#iscatter
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun iscatter
+   #run an mpi iscatter latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iscatter
+
+
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#iscatterv
+#XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+%apprun iscatterv
+   #run an mpi iscatterv latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iscatterv
