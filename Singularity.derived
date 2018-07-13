@@ -25,29 +25,60 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 #Command something like this: mpirun -n 2 singularity run --app latency
 
 ##############################
-# ltncy
+# latency
 ##############################
 
-%apprun ltncy
+%apprun latency
    # run the command to perform a latency test
-   echo "RUNNING LATENCY TEST"
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
 
 
+
 ##############################
-# bnd
+# bandwith
 ##############################
 
-%apprun bnd
+%apprun bandwith
    # run the command to perform a bandwith test
-   echo "RUNNING BANDWITH TEST"
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
 
+
+
+
 ##############################
-# ltncy_multi
+# latency_mt
 ##############################
 
-%apprun ltncy_multi
-   # run the command to perform a multi pair latency test
-   echo "RUNNING MULTI PAIR LATENCY TEST"
-   newtest2 /mpich/install/bin/mpirun -n 2 /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_multi_lat
+%apprun latency_mt
+   # run the command to perform a multi threaded latency test
+   /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency_mt
+
+
+
+##############################
+# bibw
+##############################
+
+%apprun bibw
+   #run the command to perform a bidirectional bandwith test
+   /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bibw
+
+
+
+##############################
+# mbw_mr
+##############################
+
+%apprun mbw_mr
+   #run the command to perform a multiple bandwith / messaging rate test
+   /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/mbw_mr
+
+
+
+##############################
+# multi_lat
+##############################
+
+%apprun multi_lat
+   #run the command to perform a multi pair latency test
+   /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/multi_lat
