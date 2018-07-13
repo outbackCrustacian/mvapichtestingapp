@@ -24,10 +24,12 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 #Install mpi inside vagrent (follow the singularity.mpich)
 #Command something like this: mpirun -n 2 singularity run --app latency
 
+#Point To Point MPI Benchmarks
+#
+#
 ##############################
 # latency
 ##############################
-
 %apprun latency
    # run the command to perform a latency test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
@@ -37,7 +39,6 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 ##############################
 # bandwith
 ##############################
-
 %apprun bandwith
    # run the command to perform a bandwith test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
@@ -48,7 +49,6 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 ##############################
 # latency_mt
 ##############################
-
 %apprun latency_mt
    # run the command to perform a multi threaded latency test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency_mt
@@ -58,7 +58,6 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 ##############################
 # bibw
 ##############################
-
 %apprun bibw
    #run the command to perform a bidirectional bandwith test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bibw
@@ -68,7 +67,6 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 ##############################
 # mbw_mr
 ##############################
-
 %apprun mbw_mr
    #run the command to perform a multiple bandwith / messaging rate test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_mbw_mr
@@ -78,7 +76,140 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 ##############################
 # multi_lat
 ##############################
-
 %apprun multi_lat
    #run the command to perform a multi pair latency test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_multi_lat
+
+
+
+
+
+
+
+
+
+#Collective MPI Benchmarks
+#
+#
+#00000000000000000000000000000
+#allcollectives
+#00000000000000000000000000000
+%apprun allcollectives
+   #run every benchmark included in the collective library
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allgather
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allgatherv
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_alltoall
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_alltoallv
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_bcast
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_gather
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_gatherv
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_reduce
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_reduce_scatter
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_scatter
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_scatterv
+
+
+#00000000000000000000000000000
+# allgather
+#00000000000000000000000000000
+%apprun allgather
+   #run an MPI allgather latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allgather
+
+
+#00000000000000000000000000000
+# allgatherv
+#00000000000000000000000000000
+%apprun allgatherv
+   #run an MPI allgatherv latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allgatherv
+
+
+#00000000000000000000000000000
+#allreduce
+#00000000000000000000000000000
+%apprun allreduce
+   #run an MPI allreduce latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce
+
+
+#00000000000000000000000000000
+#alltoall
+#00000000000000000000000000000
+%apprun alltoall
+   #run an MPI alltoall latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_alltoall
+
+
+#00000000000000000000000000000
+#alltoallv
+#00000000000000000000000000000
+%apprun alltoallv
+   #run an MPI alltoallv latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_alltoallv
+
+
+#00000000000000000000000000000
+#barrier
+#00000000000000000000000000000
+%apprun barrier
+   #run an MPI barrier latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier
+
+
+#00000000000000000000000000000
+#bcast
+#00000000000000000000000000000
+%apprun bcast
+   #run an MPI bcast latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_bcast
+
+
+#00000000000000000000000000000
+#gather
+#00000000000000000000000000000
+%apprun gather
+   #run an MPI gather latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_gather
+
+
+#00000000000000000000000000000
+#gatherv
+#00000000000000000000000000000
+%apprun gatherv
+   #run an MPI gatherv latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_gatherv
+
+
+#00000000000000000000000000000
+#reduce
+#00000000000000000000000000000
+%apprun reduce
+   #run an mpi reduce latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_reduce
+
+
+#00000000000000000000000000000
+#reduce_scatter
+#00000000000000000000000000000
+%apprun reduce_scatter
+   #run an mpi reduce_scatter latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_reduce_scatter
+
+
+#00000000000000000000000000000
+#scatter
+#00000000000000000000000000000
+%apprun scatter
+   #run an mpi scatter latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_scatter
+
+
+#00000000000000000000000000000
+#scatterv
+#00000000000000000000000000000
+%apprun scatterv
+   #run an mpi scatterv latency benchmark
+   /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_scatterv
