@@ -34,6 +34,16 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    # run the command to perform a latency test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
 
+%apphelp latency
+   Documentation from http://mvapich.cse.ohio-state.edu/benchmarks
+   The latency tests are carried out in a ping-pong fashion. The sender
+   sends a message with a certain data size to the receiver and waits for a
+   reply from the receiver. The receiver receives the message from the sender
+   and sends back a reply with the same data size. Many iterations of this
+   ping-pong test are carried out and average one-way latency numbers are
+   obtained. Blocking version of MPI functions (MPI_Send and MPI_Recv) are
+   used in the tests.
+
 
 
 ##############################
@@ -42,6 +52,20 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 %apprun bandwith
    # run the command to perform a bandwith test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
+
+%apphelp bandwith
+   Documentation from http://mvapich.cse.ohio-state.edu/benchmarks
+   The bandwidth tests were carried out by having the sender sending out a
+   fixed number (equal to the window size) of back-to-back messages to the
+   receiver and then waiting for a reply from the receiver. The receiver
+   sends the reply only after receiving all these messages. This process is
+   repeated for several iterations and the bandwidth is calculated based on
+   the elapsed time (from the time sender sends the first message until the
+   time it receives the reply back from the receiver) and the number of bytes
+   sent by the sender. The objective of this bandwidth test is to determine
+   the maximum sustained date rate that can be achieved at the network level.
+   Thus, non-blocking version of MPI functions (MPI_Isend and MPI_Irecv) were
+   used in the test.
 
 
 
@@ -53,6 +77,17 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    # run the command to perform a multi threaded latency test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency_mt
 
+%apphelp latency_mt
+   Documentation from http://mvapich.cse.ohio-state.edu/benchmarks
+   The multi-threaded latency test performs a ping-pong test with a single
+   sender process and multiple threads on the receiving process. In this test
+   the sending process sends a message of a given data size to the receiver
+   and waits for a reply from the receiver process. The receiving process has
+   a variable number of receiving threads (set by default to 2), where each
+   thread calls MPI_Recv and upon receiving a message sends back a response
+   of equal size. Many iterations are performed and the average one-way
+   latency numbers are reported.
+
 
 
 ##############################
@@ -61,6 +96,13 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 %apprun bibw
    #run the command to perform a bidirectional bandwith test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bibw
+
+%apphelp bibw
+   Documentation from http://mvapich.cse.ohio-state.edu/benchmarks
+   The bidirectional bandwidth test is similar to the bandwidth test, except
+   that both the nodes involved send out a fixed number of back-to-back
+   messages and wait for the reply. This test measures the maximum
+   sustainable aggregate bandwidth by two nodes.
 
 
 
@@ -71,6 +113,17 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    #run the command to perform a multiple bandwith / messaging rate test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_mbw_mr
 
+%apphelp mbw_mr
+   Documentation from http://mvapich.cse.ohio-state.edu/benchmarks
+   The multi-pair bandwidth and message rate test evaluates the aggregate
+   uni-directional bandwidth and message rate between multiple pairs of
+   processes. Each of the sending processes sends a fixed number of messages
+   (the window size) back-to-back to the paired receiving process before
+   waiting for a reply from the receiver. This process is repeated for
+   several iterations. The objective of this benchmark is to determine the
+   achieved bandwidth and message rate from one node to another node with a
+   configurable number of processes running on each node.
+
 
 
 ##############################
@@ -79,6 +132,13 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 %apprun multi_lat
    #run the command to perform a multi pair latency test
    /usr/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_multi_lat
+
+%apphelp latency_mt
+   Documentation from http://mvapich.cse.ohio-state.edu/benchmarks
+   This test is very similar to the latency test. However, at the same
+   instant multiple pairs are performing the same test simultaneously.
+   In order to perform the test across just two nodes the hostnames must
+   be specified in block fashion.
 
 
 
@@ -97,18 +157,31 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 %apprun allcollectives
    #run every benchmark included in the collective library
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allgather
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allgatherv
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_allreduce
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_alltoall
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_alltoallv
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier
+   sleep
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_bcast
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_gather
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_gatherv
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_reduce
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_reduce_scatter
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_scatter
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_scatterv
+   wait
 
 
 #00000000000000000000000000000
@@ -231,15 +304,25 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 %apprun allnonblocking
    #run every benchmark included in the collective library
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iallgather
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iallgatherv
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ialltoall
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ialltoallv
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ibarrier
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_ibcast
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_igather
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_igatherv
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iscatter
+   sleep 1
    /usr/libexec/osu-micro-benchmarks/mpi/collective/osu_iscatterv
+   wait
 
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
