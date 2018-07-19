@@ -6,7 +6,7 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    mkdir ${SINGULARITY_ROOTFS}/testmvapich
    # cp pi.c ${SINGULARITY_ROOTFS}/testmvapich/
    # get updated files
-   #cd /testmvapich
+   cd testmvapich/
    git clone https://github.com/outbackCrustacian/updated-osu_mbw_mr.c-file.git .
 
 %post
