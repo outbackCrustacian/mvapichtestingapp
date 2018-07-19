@@ -5,6 +5,9 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    # make directory for test MPI program
    mkdir ${SINGULARITY_ROOTFS}/testmvapich
    # cp pi.c ${SINGULARITY_ROOTFS}/testmvapich/
+   # get updated files
+   cd /testmvapich
+   git clone https://github.com/outbackCrustacian/updated-osu_mbw_mr.c-file.git .
 
 %post
    yum install -y wget
@@ -15,6 +18,9 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    cd /testmvapich
    wget -q http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.4.2.tar.gz
    tar xf osu-micro-benchmarks-5.4.2.tar.gz --strip-components=1
+
+   # move updated files
+   mv osu_mbw_mr.c mpi/pt2pt/
 
    ./configure CC=/mpich/install/bin/mpicc CXX=/mpich/install/bin/mpicxx --prefix=/usr
 	make
