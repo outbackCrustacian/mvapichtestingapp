@@ -4,7 +4,6 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 %setup
    # make directory for test MPI program
    mkdir ${SINGULARITY_ROOTFS}/testmvapich
-   # cp pi.c ${SINGULARITY_ROOTFS}/testmvapich/
    # get updated files
    cd ${SINGULARITY_ROOTFS}/testmvapich/
    git clone https://github.com/outbackCrustacian/updated-osu_mbw_mr.c-file.git .
