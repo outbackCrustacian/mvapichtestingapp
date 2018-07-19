@@ -18,7 +18,8 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    wget -q http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.4.2.tar.gz
    tar xf osu-micro-benchmarks-5.4.2.tar.gz --strip-components=1
    # move updated files
-   mv osu_mbw_mr.c ${SINGULARITY_ROOTFS}/testmvapich/mpi/pt2pt
+   mv osu_mbw_mr.c ${SINGULARITY_ROOTFS}mpi/pt2pt
+   #cd mpi/pt2pt
 
 
    ./configure CC=/mpich/install/bin/mpicc CXX=/mpich/install/bin/mpicxx --prefix=/usr
