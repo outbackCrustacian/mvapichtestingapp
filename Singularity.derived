@@ -8,7 +8,6 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    # get updated files
    cd /testmvapich
    git clone https://github.com/outbackCrustacian/updated-osu_mbw_mr.c-file.git .
-   cd..
 
 %post
    yum install -y wget
