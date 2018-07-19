@@ -20,7 +20,7 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    wget -q http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.4.2.tar.gz
    tar xf osu-micro-benchmarks-5.4.2.tar.gz --strip-components=1
    # move updated files
-   mv ${SINGULARITY_ROOTFS} osu_mbw_mr.c /usr/local/var/singularity/mnt/container/testmvapich
+   mv ${SINGULARITY_ROOTFS} osu_mbw_mr.c /testmvapich
    #/osu-micro-benchmarks-5.4.2.tar/osu-micro-benchmarks-5.4.2/mpi/pt2pt
 
 
