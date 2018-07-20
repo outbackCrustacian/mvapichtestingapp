@@ -26,9 +26,6 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 	make
 	make install
 
-#how to run apps in vagrant
-#Install mpi inside vagrent (follow the singularity.mpich)
-#Command something like this: mpirun -n 2 singularity run --app latency
 
 #Point To Point MPI Benchmarks
 #
