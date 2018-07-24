@@ -23,7 +23,6 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    mv osu_util.h  util/
    mv osu_util.c util/
    rm auto_test.py
-   #cd mpi/pt2pt
 
 
    ./configure CC=/mpich/install/bin/mpicc CXX=/mpich/install/bin/mpicxx --prefix=/usr
