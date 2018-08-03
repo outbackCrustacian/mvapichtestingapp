@@ -10,6 +10,7 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 
 %post
    yum install -y wget
+   yes | yum install vim-X11 vim-common vim-enhanced vim-minimal
    # add to local environment to build pi.c
    export PATH=$PATH:/mpich/install/lib
    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich/install/lib
