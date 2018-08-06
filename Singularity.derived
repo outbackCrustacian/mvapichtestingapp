@@ -30,7 +30,6 @@ From: jtchilders/singularity_mpi_test_recipe:latest
 	make
 	make install
 
-#singularity build please
 #Point To Point MPI Benchmarks
 #
 #
