@@ -22,6 +22,7 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    mv osu_mbw_mr.c mpi/pt2pt/
    mv osu_bcast.c mpi/collective/
    mv osu_allreduce.c mpi/collective/
+   mv osu_gather.c mpi/collective/
    mv osu_util.h  util/
    mv osu_util.c util/
 
