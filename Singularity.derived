@@ -20,6 +20,7 @@ From: jtchilders/singularity_mpi_test_recipe:latest
    tar xf osu-micro-benchmarks-5.4.2.tar.gz --strip-components=1
    # move updated files
    mv osu_mbw_mr.c mpi/pt2pt/
+   mv osu_multi_lat.c mpi/pt2pt/
    mv osu_bcast.c mpi/collective/
    mv osu_allreduce.c mpi/collective/
    mv osu_gather.c mpi/collective/
